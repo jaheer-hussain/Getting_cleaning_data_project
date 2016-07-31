@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "add2 <- function(x,y) {\n  x+y\n}\n\nabove <- function(x,n=10){\n   sub_v <- x > n\n   x[sub_v]\n}\n\ncolumn_op <- function(y , removeNA=TRUE\n                      \n                      ) {\n    nc <- ncol(y)  ## number of columns\n    means <- numeric(nc) ## initialize\n    for (i in 1:nc) {\n        means[i] <- mean(y[,i])\n       }\n    means\n}\n\nmake.power <- function(n)\n{\n  pow <- function(x) {n^x}\n  pow\n}\n\ny<-20\nf<- function(x) {\n  y <-2\n  y^2+g(x)\n}\ng <- function(x) {\n  x*y\n}",
+    "created" : 1465169574918.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4291085429",
+    "id" : "E24E4FAD",
+    "lastKnownWriteTime" : 1465942096,
+    "last_content_update" : 1465942096446,
+    "path" : "~/Documents/jaheer-work/R/add.R",
+    "project_path" : "add.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

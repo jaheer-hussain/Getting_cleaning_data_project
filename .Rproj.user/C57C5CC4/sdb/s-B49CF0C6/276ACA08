@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "\n## Invoke the f_test_inv to test the sample matrix\n\nmakeCacheMatrix <- function(x = matrix()) {\n  m<-NULL\n  set<-function(y){\n  x<<-y\n  m<<-NULL\n  }\nget<-function() x\nsetmatrix<-function(solve) m<<- solve\ngetmatrix<-function() m\nlist(set=set, get=get,\n   setmatrix=setmatrix,\n   getmatrix=getmatrix)\n}\n\ncacheSolve <- function(x=matrix(), ...) {\n    m<-x$getmatrix()\n    if(!is.null(m)){\n      message(\"getting cached data\")\n      return(m)\n    }\n    else\n    {\n      message(\"getting NOT cached data\")\n    }\n    datos<-x$get()\n    m<-solve(datos, ...)\n    x$setmatrix(m)\n    return(m)\n}\n\ncreate_m <- function()\n{ \n  }\nf_test_inv <- function()\n{\n  ## Create a 3*3 Matrix\n  message(\"Creating a 3*3 matrix for test\")\n  mat1 <- matrix(c(1,1,1,3,4,3,3,3,4), 3,3)\n  print(mat1)\n  ## Create the cache of the matrix\n  message(\"Create the cache of the matrix\")\n  x <- makeCacheMatrix(mat1)\n  ## Inverse the matrix by calling the solve function\n  message(\"Inverse the matrix by calling the solve function\")\n  y <- cacheSolve(x)\n  print(y)\n  ## Inverse the matrix by calling the solve function to use the Cache.\n  message(\"Inverse the matrix by calling the solve function to use the Cache\")\n  z <- cacheSolve(x)\n  print(z)\n}\n",
+    "created" : 1466274064653.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2742792900",
+    "id" : "276ACA08",
+    "lastKnownWriteTime" : 1466286392,
+    "last_content_update" : 1466286392993,
+    "path" : "~/Documents/jaheer-work/R/Coursera/cachematrix_b.R",
+    "project_path" : "Coursera/cachematrix_b.R",
+    "properties" : {
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

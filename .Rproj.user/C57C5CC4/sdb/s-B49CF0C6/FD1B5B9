@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "corr <- function(directory, threshold = 0) {\n  ## 'directory' is a character vector of length 1 indicating\n  ## the location of the CSV files\n  \n  ## 'threshold' is a numeric vector of length 1 indicating the\n  ## number of completely observed observations (on all\n  ## variables) required to compute the correlation between\n  ## nitrate and sulfate; the default is 0\n  \n  ## Return a numeric vector of correlations\n  ## Do not round the result \n  \n  tcorr <- function(fname) {\n    data <- read.csv(file.path(directory, fname))\n    nobs <- sum(complete.cases(data))\n    if (nobs > threshold) {\n      return (cor(data$nitrate, data$sulfate, use=\"pairwise.complete.obs\"))\n    }\n  }\n  tcorrs <- sapply(list.files(directory), tcorr) #get all correlations + NULLs\n  tcorrs <- unlist(tcorrs[!sapply(tcorrs, is.null)]) #remove NULLs\n  return (tcorrs)\n}",
+    "created" : 1465740409678.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "182049015",
+    "id" : "FD1B5B9",
+    "lastKnownWriteTime" : 1465743877,
+    "last_content_update" : 1465743877939,
+    "path" : "~/Documents/jaheer-work/R/corr.R",
+    "project_path" : "corr.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

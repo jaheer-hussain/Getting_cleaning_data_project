@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "pollutantmean <- function (directory, pollutant, id=1:332) {\n  ## 'directory' is a character vector of length 1 indicating the location of the CSV files.\n  \n  ## 'pollutant' is a character vector of length 1 indicating the name of the pollutant for which\n  ## we will calculate the mean; either 'sulphate' or 'nitrate'\n  \n  ## 'id' is a integer vector indicating the monitor ID numbers to be used\n  \n  ## Return the mean of the pollutant across all monitors list in the 'id' vector \n  ## (ignoring NA values)\n  ## Note : Do not round the result\n  \n  ## Merge all files data into one file\n  fn_1 <- read.csv(paste('./',directory,'/',sprintf(\"%03s\", 1),'.csv', sep=\"\")) \n  fn_2 <- read.csv(paste('./',directory,'/',sprintf(\"%03s\", 2),'.csv', sep=\"\")) \n  f_tmp_data <- rbind.data.frame(fn_1,fn_2)\n  for (i in 3:332) {\n   t_f <- read.csv(paste('./',directory,'/',sprintf(\"%03s\", i),'.csv', sep=\"\")) \n   f_tmp_data <- rbind.data.frame(f_tmp_data,t_f) \n  }\n  ## Subset of the given id\n  ss_d <- subset.data.frame(f_tmp_data,f_tmp_data$ID %in% id)\n  mn_val <- mean(ss_d[[pollutant]],na.rm=TRUE)\n  mn_val\n}",
+    "created" : 1465719492161.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1598497780",
+    "id" : "7E8AAFA3",
+    "lastKnownWriteTime" : 1465732109,
+    "last_content_update" : 1465732109,
+    "path" : "~/Documents/jaheer-work/R/pollutantmean.R",
+    "project_path" : "pollutantmean.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

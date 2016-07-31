@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "complete <- function (directory, id=1:332) {\n  ## 'directory' is a character vector of length 1 indicating the location of the CSV files.\n  \n  ## 'id' is a integer vector indicating the monitor ID numbers to be used\n  \n  ## Return a data form for number of completely observed cases in each data file\n\n  ## Define the empty vector to hold complete cases count\n  r_ve <- vector()\n  for (i in 1:length(id)) {\n    c_f <- read.csv(paste(\"./\",directory,\"/\",sprintf(\"%03s\", id[i]),\".csv\",sep=\"\"))\n    r_ve <- c(r_ve,sum(complete.cases(c_f)))\n  }\n  r_df <- data.frame(id,r_ve)\n  colnames(r_df) <- c(\"id\",\"nobs\")\n  return(r_df)\n}\n",
+    "created" : 1465732826412.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3501490086",
+    "id" : "7170C2F0",
+    "lastKnownWriteTime" : 1465737591,
+    "last_content_update" : 1465737591449,
+    "path" : "~/Documents/jaheer-work/R/Complete.R",
+    "project_path" : "Complete.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
